@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace FarmSystem.Test1
+namespace FarmSystem.Test1.Models
 {
-    public class Hen 
+    public class Hen
     {
         private string _id;
         private int _noOfLegs = 4;
@@ -16,7 +16,7 @@ namespace FarmSystem.Test1
                 _id = value;
             }
         }
-        
+
 
 
         public int NoOfLegs

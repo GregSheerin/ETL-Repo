@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace FarmSystem.Test1
+namespace FarmSystem.Test1.Models
 {
-    public class Sheep 
+    public class Horse 
     {
-       
         private string _id;
         private int _noOfLegs;
 
@@ -29,17 +28,17 @@ namespace FarmSystem.Test1
                 _noOfLegs = 4;
             }
         }
-
+        
 
         public void Talk()
         {
-            Console.WriteLine("Sheep says baa!");
+            Console.WriteLine("Horse says neigh!");
         }
-        
+
         public void Run()
         {
-            Console.WriteLine("Sheep is running");
+            Console.WriteLine("Horse is running");
         }
+        
     }
-
 }

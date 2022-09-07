@@ -1,4 +1,4 @@
-﻿namespace FarmSystem.Test2
+﻿namespace FarmSystem.Test2.Models
 {
     /// <summary>
     /// Interface which exposes method to milk animals

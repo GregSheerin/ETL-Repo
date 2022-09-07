@@ -51,12 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cow.cs" />
+    <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\Cow.cs" />
     <Compile Include="EmydexFarmSystem.cs" />
-    <Compile Include="Horse.cs" />
-    <Compile Include="IMilkableAnimal.cs" />
-    <Compile Include="Sheep.cs" />
-    <Compile Include="Hen.cs" />
+    <Compile Include="Models\Horse.cs" />
+    <Compile Include="Models\MilkableAnimal\IMilkableAnimal.cs" />
+    <Compile Include="Models\Sheep.cs" />
+    <Compile Include="Models\Hen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
