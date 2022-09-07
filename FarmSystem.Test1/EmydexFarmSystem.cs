@@ -8,38 +8,36 @@ namespace FarmSystem.Test1
 {
     public class EmydexFarmSystem
     {
-        private readonly Queue<Animal> _animalsQue;
+        private readonly Queue<Animal> _animalsQue; //declare the que here
 
         public EmydexFarmSystem()
         {
-            _animalsQue = new Queue<Animal>();
+            _animalsQue = new Queue<Animal>(); //init it here in the conctructor.
         }
 
-        private EventHandler _farmEmptyEvent;
-        public event EventHandler farmEmptyEvent
+        private EventHandler _farmEmpty;
+        public event EventHandler FarmEmpty //add and remove for event handler
         {
             add
             {
-                _farmEmptyEvent += value;
+                _farmEmpty += value;
             }
             remove
             {
-                _farmEmptyEvent -= value;
+                _farmEmpty -= value;
             }
         }
 
         //TEST 1
         public void Enter(Animal animal) //All types dervice from animal, so makes more sense to use that here.
         {
-            //Hold all the animals so it is available for future activities
-            _animalsQue.Enqueue(animal);
+            _animalsQue.Enqueue(animal);//add the naimal to the que
             Console.WriteLine($"{animal.GetType().Name} has entered the Emydex farm"); //Using get type here,types are the name of the animal
         }
 
         //TEST 2
         public void MakeNoise()
         {
-            //Test 2 : Modify this method to make the animals talk
             foreach (var animal in _animalsQue) //All animals can talk, so loop though everything and call talk
             {
                 animal.Talk();
@@ -49,7 +47,7 @@ namespace FarmSystem.Test1
         //TEST 3
         public void MilkAnimals()
         {
-            var milkableAnimals = _animalsQue.OfType<IMilkableAnimal>(); //grab all the milkable animals
+            var milkableAnimals = _animalsQue.OfType<IMilkableAnimal>(); //use linq to get all the animals that implement IMilkableAnimal
 
             if (!milkableAnimals.Any()) //if there isnt any, then we can return early, warn the user that there are no milk producing animals
             {
@@ -78,11 +76,13 @@ namespace FarmSystem.Test1
             OnFarmEmpty();
         }
 
+        //Would of put this in the release all animals method, but this could be resued for another method
+        //EG Animals break out, could be called at the end of that logic
         private void OnFarmEmpty()
         {
-            //null check to make sure we are acutaly invoking anything
             //invoke method requires object and event args, send this and empty args, no use in the acutal delegate
-            _farmEmptyEvent?.Invoke(this, EventArgs.Empty);
+            //null check to make sure we are acutaly invoking anything, this will do nothing if the field is empty
+            _farmEmpty?.Invoke(this, EventArgs.Empty);
         }
     }
 }

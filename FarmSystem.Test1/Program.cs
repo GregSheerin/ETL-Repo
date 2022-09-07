@@ -28,7 +28,9 @@ namespace FarmSystem.Test1
         {
             Console.WriteLine("Exercise 1 : Press any key when it is time to open the Farm to animals\n");
             Console.ReadKey();
+
             var _ = InitFarmSystem(); //only need to init it here, on init they all enter the farm, so can discard
+
             Console.ReadKey();
         }
 
@@ -56,6 +58,7 @@ namespace FarmSystem.Test1
 
             var farm = InitFarmSystem(); //Now I need the farm, so assign it instead of discard
             farm.MakeNoise();
+
             Console.ReadKey();
         }
 
@@ -79,8 +82,10 @@ namespace FarmSystem.Test1
             //TODO : Apply OOP concepts and modify the code below to get the required output 
             Console.WriteLine("Exercise 3 : Press any key when it is time to milk animals\n");
             Console.ReadKey();
+
             var farm = InitFarmSystem();
             farm.MilkAnimals();
+
             Console.ReadKey();
         }
 
@@ -105,13 +110,14 @@ namespace FarmSystem.Test1
         ********************************************************************************************************************/
         private static void Excercise4()
         {
-            //TODO : Apply OOP concepts and modify the code below to get the required output 
             Console.WriteLine("Exercise 4: Press any key to free all animals\n");
             Console.ReadKey();
 
             var farm = InitFarmSystem();
-            farm.farmEmptyEvent += OnFarmEmptied;
+            farm.FarmEmpty += OnFarmEmptied; //subscribe onto the event with a handler declared below
+
             farm.ReleaseAllAnimals();
+
             Console.ReadKey();
         }
 
