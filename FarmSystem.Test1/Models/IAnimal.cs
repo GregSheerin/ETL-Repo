@@ -8,6 +8,8 @@ namespace FarmSystem.Test1.Models
         void Talk();
         void Run();
 
+        void Walk();
+
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using FarmSystem.Test1.Models;
+using FarmSystem.Test1.Models.MilkableAnimal;
 
 namespace FarmSystem.Test1
 {
@@ -10,8 +11,8 @@ namespace FarmSystem.Test1
         {
             Excercise1();
             Excercise2();
-            //Excercise3();
-            //Excercise4();
+            Excercise3();
+            Excercise4();
             Console.ReadKey();
         }
 
@@ -25,7 +26,7 @@ namespace FarmSystem.Test1
         ***************************************************************************************************************/
         private static void Excercise1()
         {
-            Console.WriteLine("Exercise 1 : Press any key when it is time to open the Farm to animals");
+            Console.WriteLine("Exercise 1 : Press any key when it is time to open the Farm to animals\n");
             Console.ReadKey();
             var _ = InitFarmSystem(); //only need to init it here, on init they all enter the farm, so can discard
             Console.ReadKey();
@@ -50,12 +51,11 @@ namespace FarmSystem.Test1
         private static void Excercise2()
         {
             //TODO : Apply OOP concepts and modify the code below to get the required output 
-            Console.WriteLine("Exercise 2 : Press any key to scare the animals in the farm");
+            Console.WriteLine("Exercise 2 : Press any key to scare the animals in the farm\n");
             Console.ReadKey();
 
             var farm = InitFarmSystem(); //Now I need the farm, so assign it instead of discard
             farm.MakeNoise();
-
             Console.ReadKey();
         }
 
@@ -77,23 +77,9 @@ namespace FarmSystem.Test1
         private static void Excercise3()
         {
             //TODO : Apply OOP concepts and modify the code below to get the required output 
-            Console.WriteLine("Exercise 3 : Press any key when it is time to milk animals");
+            Console.WriteLine("Exercise 3 : Press any key when it is time to milk animals\n");
             Console.ReadKey();
-
-            var farm = new EmydexFarmSystem();
-
-            var cow = new Cow(Guid.NewGuid());
-            farm.Enter(cow);
-
-            var hen = new Hen(Guid.NewGuid());
-            farm.Enter(hen);
-
-            var horse = new Horse(Guid.NewGuid());
-            farm.Enter(horse);
-
-            var sheep = new Sheep(Guid.NewGuid());
-            farm.Enter(sheep);
-
+            var farm = InitFarmSystem();
             farm.MilkAnimals();
             Console.ReadKey();
         }
@@ -120,22 +106,11 @@ namespace FarmSystem.Test1
         private static void Excercise4()
         {
             //TODO : Apply OOP concepts and modify the code below to get the required output 
-            Console.WriteLine("Exercise 4: Press any key to free all animals");
+            Console.WriteLine("Exercise 4: Press any key to free all animals\n");
             Console.ReadKey();
 
-            var farm = new EmydexFarmSystem();
-            Cow cow = new Cow(Guid.NewGuid());
-            farm.Enter(cow);
-
-            var hen = new Hen(Guid.NewGuid());
-            farm.Enter(hen);
-
-            var horse = new Horse(Guid.NewGuid());
-            farm.Enter(horse);
-
-            var sheep = new Sheep(Guid.NewGuid());
-            farm.Enter(sheep);
-
+            var farm = InitFarmSystem();
+            farm.farmEmptyEvent += OnFarmEmptied;
             farm.ReleaseAllAnimals();
             Console.ReadKey();
         }
@@ -157,9 +132,14 @@ namespace FarmSystem.Test1
             var sheep = new Sheep(Guid.NewGuid());
             farm.Enter(sheep);
 
-            return FarmSystem;
+            return farm;
+        }
+
+        //Delegate to be passed on to the farm system, will be invoked once the farm is emptied
+        public static void OnFarmEmptied(object sender, EventArgs e)
+        {
+            Console.WriteLine("Emydex Farm is now empty");
         }
     }
 
-}
 }

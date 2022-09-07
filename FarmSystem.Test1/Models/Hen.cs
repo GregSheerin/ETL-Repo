@@ -17,5 +17,10 @@ namespace FarmSystem.Test1.Models
         {
             Console.WriteLine("Hen say CLUCKAAAAAWWWWK!");
         }
+
+        public override void Walk()
+        {
+            Console.WriteLine("Hen is walking");
+        }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System;
+using FarmSystem.Test2.Models.MilkableAnimal;
 
-namespace FarmSystem.Test1.Models
+namespace FarmSystem.Test1.Models.MilkableAnimal
 {
-    public class Cow : Animal
+    public class Cow : Animal, IMilkableAnimal
     {
         public Cow(Guid id, int noOfLegs = 4) : base(id, noOfLegs)//Cow will always have 4 legs I am assuming, if not then this value would need to be passed via the constructor
         {
@@ -10,7 +11,7 @@ namespace FarmSystem.Test1.Models
 
         //So far cow is the only one to have a "walk" method, but all given animals should be able to walk(In theroy)
         //TODO : If it is a case of common funcionalty ripping out, leave be, other move walk to base animal class
-        public void Walk()
+        public override void Walk()
         {
             Console.WriteLine("Cow is walking");
         }

@@ -52,12 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Animal.cs" />
-    <Compile Include="Models\Cow.cs" />
+    <Compile Include="Models\MilkableAnimal\Cow.cs" />
     <Compile Include="EmydexFarmSystem.cs" />
-    <Compile Include="Models\Horse.cs" />
+    <Compile Include="Models\MilkableAnimal\Horse.cs" />
     <Compile Include="Models\IAnimal.cs" />
     <Compile Include="Models\MilkableAnimal\IMilkableAnimal.cs" />
-    <Compile Include="Models\Sheep.cs" />
+    <Compile Include="Models\MilkableAnimal\Sheep.cs" />
     <Compile Include="Models\Hen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

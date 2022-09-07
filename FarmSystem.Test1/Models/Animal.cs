@@ -10,7 +10,7 @@ namespace FarmSystem.Test1.Models
         public Animal(Guid id, int noOfLegs)
         {
             Id = id.ToString();
-            NoOfLegs = noOfLegs;
+            NoOfLegs = noOfLegs; //passed in from children type. Cow will always have 4 legs, but could create a snake class,inherit this class, and assign 0 for the base controcutor
         }
 
         //No need to touch these for test 1
@@ -38,5 +38,6 @@ namespace FarmSystem.Test1.Models
         //Dont want actual implentations in the base class,want to enforce other classes using this common funconailty
         public abstract void Run();
         public abstract void Talk();
+        public abstract void Walk();
     }
 }
