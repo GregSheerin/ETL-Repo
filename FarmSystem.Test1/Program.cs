@@ -114,7 +114,7 @@ namespace FarmSystem.Test1
             Console.ReadKey();
 
             var farm = InitFarmSystem();
-            farm.FarmEmpty += OnFarmEmptied; //subscribe onto the event with a handler declared below
+            farm.FarmEmpty += (s,e) => Console.WriteLine("Emydex Farm is now empty"); ; //subscribe onto the event with a handler(went with an lamba expersion here due to simplicity)
 
             farm.ReleaseAllAnimals();
 
@@ -140,12 +140,5 @@ namespace FarmSystem.Test1
 
             return farm;
         }
-
-        //Delegate to be passed on to the farm system, will be invoked once the farm is emptied
-        public static void OnFarmEmptied(object sender, EventArgs e)
-        {
-            Console.WriteLine("Emydex Farm is now empty");
-        }
     }
-
 }
