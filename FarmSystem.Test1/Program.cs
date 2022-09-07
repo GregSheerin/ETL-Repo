@@ -9,7 +9,7 @@ namespace FarmSystem.Test1
         private static void Main(string[] args)
         {
             Excercise1();
-            //Excercise2();
+            Excercise2();
             //Excercise3();
             //Excercise4();
             Console.ReadKey();
@@ -27,21 +27,7 @@ namespace FarmSystem.Test1
         {
             Console.WriteLine("Exercise 1 : Press any key when it is time to open the Farm to animals");
             Console.ReadKey();
-
-            var farm = new EmydexFarmSystem();
-
-            var cow = new Cow(Guid.NewGuid());
-            farm.Enter(cow);
-
-            var hen = new Hen(Guid.NewGuid());
-            farm.Enter(hen);
-
-            var horse = new Horse(Guid.NewGuid());
-            farm.Enter(horse);
-
-            var sheep = new Sheep(Guid.NewGuid());
-            farm.Enter(sheep);
-
+            var _ = InitFarmSystem(); //only need to init it here, on init they all enter the farm, so can discard
             Console.ReadKey();
         }
 
@@ -67,21 +53,9 @@ namespace FarmSystem.Test1
             Console.WriteLine("Exercise 2 : Press any key to scare the animals in the farm");
             Console.ReadKey();
 
-            var farm = new EmydexFarmSystem();
-
-            var cow = new Cow(Guid.NewGuid());
-            farm.Enter(cow);
-
-            var hen = new Hen(Guid.NewGuid());
-            farm.Enter(hen);
-
-            var horse = new Horse(Guid.NewGuid());
-            farm.Enter(horse);
-
-            var sheep = new Sheep(Guid.NewGuid());
-            farm.Enter(sheep);
-
+            var farm = InitFarmSystem(); //Now I need the farm, so assign it instead of discard
             farm.MakeNoise();
+
             Console.ReadKey();
         }
 
@@ -166,5 +140,26 @@ namespace FarmSystem.Test1
             Console.ReadKey();
         }
 
+        //Since we are always dealing with the same collection of animals, can set up the EmydexFarm here and reuse
+        private static EmydexFarmSystem InitFarmSystem()
+        {
+            var farm = new EmydexFarmSystem();
+
+            var cow = new Cow(Guid.NewGuid());
+            farm.Enter(cow);
+
+            var hen = new Hen(Guid.NewGuid());
+            farm.Enter(hen);
+
+            var horse = new Horse(Guid.NewGuid());
+            farm.Enter(horse);
+
+            var sheep = new Sheep(Guid.NewGuid());
+            farm.Enter(sheep);
+
+            return FarmSystem;
+        }
     }
+
+}
 }
