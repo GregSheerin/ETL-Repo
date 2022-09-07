@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FarmSystem.Test1.Models
 {
-    public abstract class Animal
+    public abstract class Animal : IAnimal
     {
         private string _id;
-        private int _noOfLegs = 4;
+        private int _noOfLegs;
 
         public Animal(Guid id, int noOfLegs)
         {
             Id = id.ToString();
             NoOfLegs = noOfLegs;
-            NoOfLegs = noOfLegs;
         }
 
+        //No need to touch these for test 1
         public string Id
         {
             get { return _id; }
@@ -38,5 +34,9 @@ namespace FarmSystem.Test1.Models
                 _noOfLegs = value;
             }
         }
+
+        //Dont want actual implentations in the base class,want to enforce other classes using this common funconailty
+        public abstract void Run();
+        public abstract void Talk();
     }
 }

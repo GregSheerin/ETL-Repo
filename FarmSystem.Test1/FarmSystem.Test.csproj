@@ -55,6 +55,7 @@
     <Compile Include="Models\Cow.cs" />
     <Compile Include="EmydexFarmSystem.cs" />
     <Compile Include="Models\Horse.cs" />
+    <Compile Include="Models\IAnimal.cs" />
     <Compile Include="Models\MilkableAnimal\IMilkableAnimal.cs" />
     <Compile Include="Models\Sheep.cs" />
     <Compile Include="Models\Hen.cs" />

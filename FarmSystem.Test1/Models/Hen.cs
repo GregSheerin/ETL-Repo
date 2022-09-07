@@ -2,43 +2,20 @@
 
 namespace FarmSystem.Test1.Models
 {
-    public class Hen
+    public class Hen : Animal
     {
-        private string _id;
-        private int _noOfLegs = 4;
-
-
-        public string Id
+        public Hen(Guid id, int noOfLegs = 2) : base(id, noOfLegs)//hen will always have 2 legs I am assuming, if not then this value would need to be passed via the constructor
         {
-            get { return _id; }
-            set
-            {
-                _id = value;
-            }
         }
 
-
-
-        public int NoOfLegs
-        {
-            get
-            {
-                return _noOfLegs;
-            }
-            set
-            {
-                _noOfLegs = 4;
-            }
-        }
-
-        public void Talk()
-        {
-            Console.WriteLine("Hen say CLUCKAAAAAWWWWK!");
-        }
-
-        public void Run()
+        public override void Run()
         {
             Console.WriteLine("Hen is running");
+        }
+
+        public override void Talk()
+        {
+            Console.WriteLine("Hen say CLUCKAAAAAWWWWK!");
         }
     }
 }

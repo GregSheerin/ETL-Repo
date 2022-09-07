@@ -2,38 +2,14 @@
 
 namespace FarmSystem.Test1.Models
 {
-    public class Cow 
+    public class Cow : Animal
     {
-        private string _id;
-        private int _noOfLegs = 4;
-
-
-        public string Id
+        public Cow(Guid id, int noOfLegs = 4) : base(id, noOfLegs)//Cow will always have 4 legs I am assuming, if not then this value would need to be passed via the constructor
         {
-            get { return _id; }
-            set
-            {
-                _id = value;
-            }
         }
 
-        public int NoOfLegs
-        {
-            get
-            {
-                return _noOfLegs;
-            }
-            set
-            {
-                _noOfLegs = 4;
-            }
-        }
-
-        public void Talk()
-        {
-            Console.WriteLine("Cow says Moo!");
-        }
-
+        //So far cow is the only one to have a "walk" method, but all given animals should be able to walk(In theroy)
+        //TODO : If it is a case of common funcionalty ripping out, leave be, other move walk to base animal class
         public void Walk()
         {
             Console.WriteLine("Cow is walking");
@@ -44,9 +20,14 @@ namespace FarmSystem.Test1.Models
             Console.WriteLine("Cow produced milk");
         }
 
-        public void Run()
+        public override void Run()
         {
             Console.WriteLine("Cow is running");
+        }
+
+        public override void Talk()
+        {
+            Console.WriteLine("Cow says Moo!");
         }
 
     }
