@@ -13,7 +13,6 @@ namespace FarmSystem.Test1.Models
             NoOfLegs = noOfLegs; //passed in from children type. Cow will always have 4 legs, but could create a snake class,inherit this class, and assign 0 for the base controcutor
         }
 
-        //No need to touch these for test 1
         public string Id
         {
             get { return _id; }
@@ -35,9 +34,17 @@ namespace FarmSystem.Test1.Models
             }
         }
 
-        //Dont want actual implentations in the base class,want to enforce other classes using this common funconailty
-        public abstract void Run();
+        //Since the Walk and Run methods the extact same for each anima(bar the name), can implent it here and use it for the classes(virutal so overwriting is possible)
+        //NOTE on the run/walk methods. They are unsed in the exercises, keeping them in as I think pulling out the core functionalty is a part of the exercises
+        //If it is the case were I am wrong here, I would remove these entierly
+        public virtual void Run()
+        {
+            Console.WriteLine($"{GetType().Name} is running"); //Using get type here,types are the name of the animal
+        }
         public abstract void Talk();
-        public abstract void Walk();
+        public virtual void Walk()
+        {
+            Console.WriteLine($"{GetType().Name} is walking"); //Using get type here,types are the name of the animal
+        }
     }
 }

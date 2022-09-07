@@ -9,27 +9,14 @@ namespace FarmSystem.Test1.Models.MilkableAnimal
         {
         }
 
-        //So far cow is the only one to have a "walk" method, but all given animals should be able to walk(In theroy)
-        //TODO : If it is a case of common funcionalty ripping out, leave be, other move walk to base animal class
-        public override void Walk()
+        public override void Talk()
         {
-            Console.WriteLine("Cow is walking");
+            Console.WriteLine("Cow says Moo!");
         }
 
         public void ProduceMilk()
         {
             Console.WriteLine("Cow produced milk");
         }
-
-        public override void Run()
-        {
-            Console.WriteLine("Cow is running");
-        }
-
-        public override void Talk()
-        {
-            Console.WriteLine("Cow says Moo!");
-        }
-
     }
 }

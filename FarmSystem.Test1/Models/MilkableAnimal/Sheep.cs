@@ -14,16 +14,6 @@ namespace FarmSystem.Test1.Models.MilkableAnimal
             Console.WriteLine("Sheep says baa!");
         }
 
-        public override void Run()
-        {
-            Console.WriteLine("Sheep is running");
-        }
-
-        public override void Walk()
-        {
-            Console.WriteLine("Sheep is walking");
-        }
-
         public void ProduceMilk()
         {
             Console.WriteLine("Sheep produced milk");

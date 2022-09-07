@@ -8,19 +8,9 @@ namespace FarmSystem.Test1.Models
         {
         }
 
-        public override void Run()
-        {
-            Console.WriteLine("Hen is running");
-        }
-
         public override void Talk()
         {
             Console.WriteLine("Hen say CLUCKAAAAAWWWWK!");
-        }
-
-        public override void Walk()
-        {
-            Console.WriteLine("Hen is walking");
         }
     }
 }
