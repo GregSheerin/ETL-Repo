@@ -16,7 +16,7 @@ namespace FarmSystem.Test1.Models
         public string Id
         {
             get { return _id; }
-            set
+            set //TODO: Convert the ID to use GUID? Need to think about that one, user would have to convert it to a string before setting
             {
                 _id = value;
             }
