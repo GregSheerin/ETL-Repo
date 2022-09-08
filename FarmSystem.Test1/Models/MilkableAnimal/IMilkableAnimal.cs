@@ -7,7 +7,7 @@
     {
         #region  Public Methods
 
-        void ProduceMilk();
+        string ProduceMilk();
 
         #endregion
     }

@@ -10,6 +10,24 @@ namespace FarmSystem.UnitTests
     [TestClass]
     public class EmydexFarmSystemTests
     {
+        private readonly EventHandler _eventHandler;
+
+        public EmydexFarmSystemTests()
+        {
+            //Need to declare this above and then init here for reuse on tests related to event
+            //Using anonoymus functions doesnt gurante that one will del1 = del2, and I want to test the removal so I need a defined handler
+            _eventHandler = (s, e) => Console.WriteLine("TestDelegateOutPut");
+        }
+
+        [TestMethod]
+        public void EmydexFarmSystem_ShouldImplementIEmydexFarmSystem()
+        {
+            //Arrange Act
+            var sut = new EmydexFarmSystem();
+
+            //Assert
+            Assert.IsInstanceOfType(sut, typeof(IEmydexFarmSystem));
+        }
 
         [TestMethod]
         public void Enter_OutPutsAnimalsIntoTheFarm()
@@ -65,7 +83,7 @@ namespace FarmSystem.UnitTests
             sut.MilkAnimals();
 
             //Assert
-            Assert.AreEqual("Cow has entered the Emydex farm\r\nHorse has entered the Emydex farm\r\nCow produced milk\r\nHorse produced milk\r\n", stringWriter.ToString());
+            Assert.AreEqual("Cow has entered the Emydex farm\r\nHorse has entered the Emydex farm\r\nCow was milked!\r\nHorse was milked!\r\n", stringWriter.ToString());
         }
 
         [TestMethod]
@@ -91,7 +109,7 @@ namespace FarmSystem.UnitTests
         {
             //Arrange
             var sut = new EmydexFarmSystem();
-            sut.FarmEmpty += (s, e) => { Console.WriteLine("TestDelegateOutPut"); };
+            sut.FarmEmpty += _eventHandler;
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
 
@@ -114,21 +132,20 @@ namespace FarmSystem.UnitTests
         {
             //Arrange
             var sut = new EmydexFarmSystem();
-
-            sut.FarmEmpty += (s, e) => { Console.WriteLine("TestDelegateOutPut"); };
+            sut.FarmEmpty += _eventHandler;
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
 
             var cow = new Cow(Guid.NewGuid());
             var horse = new Horse(Guid.NewGuid());
-            sut.FarmEmpty -= (s, e) => { Console.WriteLine("TestDelegateOutPut"); };
+            sut.FarmEmpty -= _eventHandler;
             //Act
             sut.Enter(cow);
             sut.Enter(horse);
             sut.ReleaseAllAnimals();
 
             //Assert
-            Assert.AreEqual("Cow has entered the Emydex farm\r\nHorse has entered the Emydex farm\r\nCow has left the farm\r\nHorse has left the farm\r\nTestDelegateOutPut\r\n", stringWriter.ToString());
+            Assert.AreEqual("Cow has entered the Emydex farm\r\nHorse has entered the Emydex farm\r\nCow has left the farm\r\nHorse has left the farm\r\n", stringWriter.ToString());
         }
     }
 }

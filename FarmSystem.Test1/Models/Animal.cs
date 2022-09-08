@@ -38,18 +38,18 @@ namespace FarmSystem.Test1.Models
 
         //Since the Walk and Run methods the extact same for each anima(bar the name), can implent it here and use it for the classes(virutal so overwriting is possible)
         //NOTE on the run/walk methods. They are unsed in the exercises, keeping them in as I think pulling out the core functionalty is a part of the exercises
-        //If it is the case were I am wrong here, I would remove these entierly
-        public virtual void Run()
+        //If it is the case were I am wrong here, I would remove these unsed methods entierly
+        public virtual string Run()
         {
-            Console.WriteLine($"{GetType().Name} is running"); //Using get type here,types are the name of the animal
+            return $"{GetType().Name} is running"; //Using get type here,types are the name of the animal
         }
-        public virtual void Talk()
+        public virtual string Talk()
         {
-            Console.WriteLine($"{GetType().Name} says {_sound}!"); //Extract out the sound in the constrctor, use it here
+            return $"{GetType().Name} says {_sound}!"; //Extract out the sound in the constrctor, use it here
         }
-        public virtual void Walk()
+        public virtual string Walk()
         {
-            Console.WriteLine($"{GetType().Name} is walking"); //Using get type here,types are the name of the animal
+            return $"{GetType().Name} is walking"; //Using get type here,types are the name of the animal
         }
     }
 }

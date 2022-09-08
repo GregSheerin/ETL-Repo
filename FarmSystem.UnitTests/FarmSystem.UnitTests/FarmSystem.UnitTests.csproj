@@ -70,7 +70,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\Tec Test emdyex\ETL-Repo\FarmSystem.Test1\FarmSystem.Test.csproj">
+    <ProjectReference Include="..\..\FarmSystem.Test1\FarmSystem.Test.csproj">
       <Project>{b0742d37-2746-45d6-9133-4a1ba51d9814}</Project>
       <Name>FarmSystem.Test</Name>
     </ProjectReference>

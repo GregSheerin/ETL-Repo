@@ -73,46 +73,25 @@ namespace UnitTestProject1.Models
         }
 
         [TestMethod]
-        public void Talk_ShouldOutputCluckToTheConsole()
+        public void Talk_ShouldReturnHenSaysCluck()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-
-            //Act
-            _sut.Talk();
-
-            //Assert
-            var res = stringWriter.ToString();
-            Assert.AreEqual("Hen says CLUCKAAAAAWWWWK!\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Hen says CLUCKAAAAAWWWWK!", _sut.Talk());
         }
 
         [TestMethod]
-        public void Walk_ShouldOutputWalkingToTheConsole()
+        public void Walk_ShouldReturnIsWalking()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
 
-            //Act
-            _sut.Walk();
-
-            //Assert
-            Assert.AreEqual("Hen is walking\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Hen is walking", _sut.Walk());
         }
 
         [TestMethod]
-        public void Run_ShouldOutputRunningToTheConsole()
+        public void Run_ShouldReturnIsRunning()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-
-            //Act
-            _sut.Run();
-
-            //Assert
-            Assert.AreEqual("Hen is running\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Hen is running", _sut.Run());
         }
     }
 }

@@ -6,7 +6,7 @@ using FarmSystem.Test2.Models.MilkableAnimal;
 
 namespace FarmSystem.Test1
 {
-    public class EmydexFarmSystem
+    public class EmydexFarmSystem : IEmydexFarmSystem
     {
         private readonly Queue<Animal> _animalsQue; //declare the que here
 
@@ -40,7 +40,7 @@ namespace FarmSystem.Test1
         {
             foreach (var animal in _animalsQue) //All animals can talk, so loop though everything and call talk
             {
-                animal.Talk();
+                Console.WriteLine(animal.Talk());
             }
         }
 
@@ -58,7 +58,7 @@ namespace FarmSystem.Test1
             //Otherwise, just loop though and call ProduceMilk
             foreach (var animal in milkableAnimals)
             {
-                animal.ProduceMilk();
+                Console.WriteLine(animal.ProduceMilk());
             }
         }
 

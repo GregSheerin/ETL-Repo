@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEmydexFarmSystem.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalSounds.cs" />
     <Compile Include="Models\MilkableAnimal\Cow.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Models\MilkableAnimal\Horse.cs" />
     <Compile Include="Models\IAnimal.cs" />
     <Compile Include="Models\MilkableAnimal\IMilkableAnimal.cs" />
+    <Compile Include="Models\MilkableAnimal\MilkAbleAnimal.cs" />
     <Compile Include="Models\MilkableAnimal\Sheep.cs" />
     <Compile Include="Models\Hen.cs" />
     <Compile Include="Program.cs" />

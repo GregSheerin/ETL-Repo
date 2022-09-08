@@ -82,60 +82,34 @@ namespace FarmSystem.UnitTests.Models.MilkableAnimal
         }
 
         [TestMethod]
-        public void Milk_ShouldOutputMilkProducedToTheConsole()
+        public void Milk_ShouldReturnedCowWasMilked()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
 
-            //Act 
-            _sut.ProduceMilk();
-
-            //Assert
-            Assert.AreEqual("Cow produced milk\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Cow was milked!", _sut.ProduceMilk());
         }
 
         [TestMethod]
-        public void Talk_ShouldOutputMooToTheConsole()
+        public void Talk_ShouldReturnCowSaysMoo()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-
-            //Act
-            _sut.Talk();
-
-            //Assert
-            Assert.AreEqual("Cow says Moo!\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Cow says Moo!", _sut.Talk());
         }
 
 
         [TestMethod]
-        public void Walk_ShouldOutputWalkingToTheConsole()
+        public void Walk_ShouldReturnCowIsWalking()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
 
-            //Act
-            _sut.Walk();
-
-            //Assert
-            Assert.AreEqual("Cow is walking\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Cow is walking", _sut.Walk());
         }
 
         [TestMethod]
-        public void Run_ShouldOutputRunningToTheConsole()
+        public void Run_ShouldReturnCowIsRunning()
         {
-            //Arrange
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-
-            //Act
-            _sut.Run();
-
-            //Assert
-            Assert.AreEqual("Cow is running\r\n", stringWriter.ToString());
+            //Act Assert
+            Assert.AreEqual("Cow is running", _sut.Run());
         }
     }
 }
