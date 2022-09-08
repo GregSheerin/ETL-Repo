@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\AnimalSounds.cs" />
     <Compile Include="Models\MilkableAnimal\Cow.cs" />
     <Compile Include="EmydexFarmSystem.cs" />
     <Compile Include="Models\MilkableAnimal\Horse.cs" />

@@ -6,11 +6,13 @@ namespace FarmSystem.Test1.Models
     {
         private string _id;
         private int _noOfLegs;
+        private AnimalSounds _sound;
 
-        public Animal(Guid id, int noOfLegs)
+        public Animal(Guid id, int noOfLegs, AnimalSounds sound)
         {
             Id = id.ToString();
             NoOfLegs = noOfLegs; //passed in from children type. Cow will always have 4 legs, but could create a snake class,inherit this class, and assign 0 for the base controcutor
+            _sound = sound;
         }
 
         public string Id
@@ -41,7 +43,10 @@ namespace FarmSystem.Test1.Models
         {
             Console.WriteLine($"{GetType().Name} is running"); //Using get type here,types are the name of the animal
         }
-        public abstract void Talk();
+        public virtual void Talk()
+        {
+            Console.WriteLine($"{GetType().Name} says {_sound}!"); //Extract out the sound in the constrctor, use it here
+        }
         public virtual void Walk()
         {
             Console.WriteLine($"{GetType().Name} is walking"); //Using get type here,types are the name of the animal
