@@ -40,7 +40,7 @@ namespace FarmSystem.Test1
         {
             foreach (var animal in _animalsQue) //All animals can talk, so loop though everything and call talk
             {
-                Console.WriteLine(animal.Talk());
+                Console.WriteLine(animal.Talk()); //all animals will return X says sound, so just write each out to the console(reasoning for this in ReadMe)
             }
         }
 
@@ -58,7 +58,7 @@ namespace FarmSystem.Test1
             //Otherwise, just loop though and call ProduceMilk
             foreach (var animal in milkableAnimals)
             {
-                Console.WriteLine(animal.ProduceMilk());
+                Console.WriteLine(animal.ProduceMilk());//all animals will return X says sound, so just write each out to the console(reasoning for this in ReadMe)
             }
         }
 

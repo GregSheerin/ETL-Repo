@@ -18,7 +18,7 @@ namespace FarmSystem.Test1.Models
         public string Id
         {
             get { return _id; }
-            set //TODO: Convert the ID to use GUID? Need to think about that one, user would have to convert it to a string before setting
+            set
             {
                 _id = value;
             }
@@ -36,16 +36,16 @@ namespace FarmSystem.Test1.Models
             }
         }
 
-        //Since the Walk and Run methods the extact same for each anima(bar the name), can implent it here and use it for the classes(virutal so overwriting is possible)
+        //Since the Walk and Run methods are the extact same for each animal(bar the name), can implent it here and use it for the classes(virutal so overwriting is possible)
         //NOTE on the run/walk methods. They are unsed in the exercises, keeping them in as I think pulling out the core functionalty is a part of the exercises
         //If it is the case were I am wrong here, I would remove these unsed methods entierly
         public virtual string Run()
         {
-            return $"{GetType().Name} is running"; //Using get type here,types are the name of the animal
+            return $"{GetType().Name} is running"; //Using get type here to get the name,types are the name of the animal
         }
         public virtual string Talk()
         {
-            return $"{GetType().Name} says {_sound}!"; //Extract out the sound in the constrctor, use it here
+            return $"{GetType().Name} says {_sound}!"; //Sound is passed into the class via controcutr(which is passed from the child)
         }
         public virtual string Walk()
         {
