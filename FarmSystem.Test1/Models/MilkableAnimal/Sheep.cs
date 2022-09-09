@@ -10,5 +10,4 @@ namespace FarmSystem.Test1.Models.MilkableAnimal
         {
         }
     }
-
 }

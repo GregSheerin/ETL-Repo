@@ -34,6 +34,9 @@ namespace FarmSystem.UnitTests
         {
             //Arrange
             var sut = new EmydexFarmSystem();
+
+            //Set up a string writer to capture the consoles output, then I can check verus that
+            //I used the tools built into Xunit before for this, main disadvantage with this apporach is that I have to account for the formatting at the end of strings
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
 

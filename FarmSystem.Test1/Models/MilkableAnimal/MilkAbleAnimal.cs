@@ -1,5 +1,5 @@
-﻿using FarmSystem.Test2.Models.MilkableAnimal;
-using System;
+﻿using System;
+using FarmSystem.Test2.Models.MilkableAnimal;
 
 namespace FarmSystem.Test1.Models.MilkableAnimal
 {

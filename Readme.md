@@ -40,15 +40,30 @@ I made an extra abstract class for a milkable animal, the orginal output to foll
 Nothing too off the walk. I use IAnimal to enforce the common fucntioanly across animal, same with IMilkable animal and IEmydexFarmSystem. In the case of Animal, it purely to define the common methods. In the case of ImilkableAnimal, this is used both for the same reason as animal, and to server as a way to extract out any "milkable" animal in the farm system.
 Finally, IEmydexFarmSystem is used for the same as IAnimal/IMilkableAnimal, but also to allow for extenabilty(EG a new farm system, does the same things in general but the logic is changed).
 
+### EmydexFarmSystem
+Few things I would of liked to add to this, while it isnt technicaly a part of the test, a bit more validation is definilty in order(null checks for exmaple). I also was
+debating to treat the farm system like the models in regards to strings, but I concluded that this is closer to a service,that is it this classes job to let the user know
+that X has done Y, therefore in the context of the application it should be allowed to use console prints.
+
 ###### Quick note on Walk and Run methods in the Animal class
 This methods are complety unsed bar my units tests. Normally id cut these methods out the second I figured they were not doing anything, but I am unuse if these were placed in the repo
 to test my abilty to regonise the common functiaonlty(and thus use inheritance to incoperate these methods into their children), or to regonise that these methods are infact unsed and thus should be got rid of.
 I did ask early on about these methods(IE can all of the animals do this, not about their usage) and it was to be left up to me to decide. Upon realising this I figured it would be better
 to just note this here, and explain that I would normally get rid of them. As I exaplined above, not use what their purpose is in regards to the actual test itself.
 
+### Unit Test Coverage
+As a side note, I am a beliver in high coverage via unit tests, and while it wasnt a part of the test it did allow for both faster reactoring and better bug detection in the code. 
+I could just simple run the farm system tests after changing the way the sounds works, to make sure all the animals are still talking correctly(as an example).
+I've included a folder called coverage, were ill drop screentshot of the coverage if your interested. I used dotNetCover for this, as it is what I was used to in eurofins(and 
+I havent use the free trail yet for github creditinals, so just pulled in dot net cover from the resharper extensions). I didnt unit test progam.cs as a part of this, as it is being used
+more as a harness to run the exercises, so focused on the models/Farm system.
+
+Also as a quick note, I avoided copy and pasting the same comments all over the place for the tests(bar arrange act assert). The CowTests.cs and EmydexFarmSystems are commented, Cow tests are relfective of the rest of the models,
+and the farm system more comments related to elements in that test I thought could use for comment on.
 
 If you want it to the end of this, thanks for reading though my thoughts on this. As I said, just a general overview of my thoughts tackling this project. I would also take this time
 to aplogise for any spelling/gramatic errors, as I am dyslexic its not my fortey. 
+
 
 
 

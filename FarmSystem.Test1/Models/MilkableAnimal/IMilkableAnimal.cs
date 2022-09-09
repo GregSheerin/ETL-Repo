@@ -5,10 +5,6 @@
     /// </summary>
     public interface IMilkableAnimal
     {
-        #region  Public Methods
-
         string ProduceMilk();
-
-        #endregion
     }
 }
